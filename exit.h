@@ -9,8 +9,8 @@ public:
 	bool open;
 	char desc[200];
 	direction dir;
-	room source;
-	room dest;
+	rom source;
+	rom dest;
 	
 };
 
