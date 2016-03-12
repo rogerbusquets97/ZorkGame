@@ -7,6 +7,6 @@ public:
 	 char name[10];
 	 char desc[200];
 };
-room*rooms;
+
 
 #endif

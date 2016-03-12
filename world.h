@@ -6,8 +6,8 @@
 class world{
 public:
 	
-	void createworld();
-	world::~world();
+	void world::createworld(room rooms[9], exit exits[17]);
+	
 
 
 

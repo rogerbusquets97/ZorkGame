@@ -6,11 +6,11 @@
 class player{
 public:
 	
-	rom currentroom;
-	rom nextroom(const rom current, const direction dire );
+	rom curr;
+	rom nextroom( rom current, direction dire, exit*exits );
 
 };
-player pl;
+
 
 
 

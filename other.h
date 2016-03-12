@@ -1,8 +1,9 @@
 #ifndef OTHER_H
 #define OTHER_H
 #include <string.h>
-int numargs(char*string);
+#include "world.h"
 
+void play(world w, exit*exits, room*rooms);
 
 
 

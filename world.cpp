@@ -4,8 +4,9 @@
 #include "world.h"
 #include "exit.h"
 
-void world::createworld(){
+void world::createworld(room rooms[9], exit exits[17]){
 	//rooms
+	
 	rooms = new room[9];
 	//rooms name
 	
@@ -31,6 +32,7 @@ void world::createworld(){
 	strcpy_s(rooms[8].desc, "You're in front of an enormous castle, maybe you'll find here what you need to go back to the future");
 	
 	//exits
+	
 	exits = new exit[17];
 	//exits data
 	//exit 0 and 1 to go in an outside the castle
@@ -163,9 +165,3 @@ void world::createworld(){
 	
 
 
-
-world::~world()
-{
-	delete rooms;
-	delete exits;
-}
