@@ -9,3 +9,6 @@ Use:
 -"help" to see the comands you can use(ingame).
 -"close/open door" to close or open the door.
 
+Roger Busquets Duran
+
+https://github.com/rogerbusquets97
