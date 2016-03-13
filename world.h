@@ -1,21 +1,31 @@
-#ifndef WORLD_H
+#ifndef _WORLD_H_
 #define WORLD_H
+
+#include "player.h"
 #include "exit.h"
 #include "room.h"
 
-class world{
+
+
+class World {
 public:
-	
-	void world::createworld(room rooms[9], exit exits[17]);
-	
+	room*rooms;
+	Exit*exits;
+	player pl;
+public:
+	void CreateWorld();
 
+	void nextroom(direction dir);
+	void LookRoom();
+	bool Play();
+	void World::openclose();
 
+	
 
 };
 
 
 
-
-
+//void OpenClose(World(&world), char* action, char* direction);
 
 #endif

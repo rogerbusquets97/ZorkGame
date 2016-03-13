@@ -1,17 +1,17 @@
-#ifndef EXIT_H
-#define EXIT_H
+#ifndef _EXIT_H_
+#define _EXIT_H_
+
 #include "room.h"
 
-enum direction{north,south,east,west};
+enum direction { north, south, east, west };
 
-class exit{
+class Exit{
 public:
 	bool open;
-	char desc[200];
 	direction dir;
 	rom source;
 	rom dest;
-	
+
 };
 
 
