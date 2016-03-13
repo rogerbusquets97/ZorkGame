@@ -18,7 +18,7 @@ void World::CreateWorld(){
 	rooms[stables].StoreRoom("Stables", "You're in the stables it seems there's something hidden in the thatch\n");
 	rooms[barracks].StoreRoom("Barracks", "You're in the barracks, someone is training you can learn useful things here\n");
 	rooms[princess].StoreRoom("Princess's room", "You're in the pricess's room, she's naked in the bed, but she seem to be happy to have a visit ;)\n");
-	rooms[castle].StoreRoom("Castle entrance", "You're in front of an enormous castle, maybe you'll find here what you need to go back to the future\n");
+	rooms[castle].StoreRoom("Castle entrance", "You're inside enormous castle, maybe you'll find here what you need to go back to the future\n");
 	
 	
 	//rooms desc
@@ -46,13 +46,13 @@ void World::CreateWorld(){
 
 	
 	exits[2].dir = east;
-	exits[2].open = false;
+	exits[2].open = true;
 	exits[2].source = castle;
 	exits[2].dest = knightsroom;
 
 	
 	exits[3].dir = west;
-	exits[3].open = false;
+	exits[3].open = true;
 	exits[3].source = knightsroom;
 	exits[3].dest = castle;
 
@@ -169,6 +169,7 @@ void World::nextroom(direction dir){
 				else {
 					pl.curr = exits[i].dest;
 					LookRoom();
+					break;
 				}
 			}
 		}
@@ -202,10 +203,16 @@ bool World::Play(){
 		else if (!strcmp(action, "open door\n")) {
 			openclose();
 		}
-		else
-			if (!strcmp(action, "close door\n")) {
+		else if (!strcmp(action, "close door\n")) {
 				openclose();
 			}
+		else if(!strcmp(action, "help\n") || !strcmp(action, "h\n")) {
+			printf("Comands\n Go north(to move to the north)\n Go south(to move to the south)\n Go east(to move to the east)\n Go west( to move to the west)\n Look(to have again the description of the room)\n Help(to see againg the comands)\n quit(to quit the game)\n");
+		}
+		else if (!strcmp(action, "look\n") || !strcmp(action, "l\n")){
+			LookRoom();
+		}
+
 
 		return true;
 	}
@@ -217,10 +224,12 @@ void World::openclose(){
 		if ((exits[i].source == pl.curr) && (exits[i].open == true)){
 			exits[i].open = false;
 			printf("Now the door is closed\n");
+			break;
 		}
 		else if ((exits[i].source == pl.curr) && (exits[i].open == false)){
 			exits[i].open = true;
 			printf("You have opened the door, now you can go that direction\n");
+			break;
 		}
 
 	}

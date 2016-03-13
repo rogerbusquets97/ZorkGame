@@ -7,7 +7,7 @@ public:
 	 char* name;
 	 char* desc;
 
-	 void StoreRoom(char* title, char* description);
+	 void StoreRoom( char* title, char* description);
 };
 
 

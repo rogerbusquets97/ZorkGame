@@ -15,7 +15,7 @@ public:
 public:
 	void CreateWorld();
 
-	void nextroom(direction dir);
+	void nextroom(const direction dir);
 	void LookRoom();
 	bool Play();
 	void World::openclose();
