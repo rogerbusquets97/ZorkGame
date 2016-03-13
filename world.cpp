@@ -156,7 +156,7 @@ void World::CreateWorld(){
 void World::LookRoom() {
 	printf("  -> %s\n\n %s", rooms[pl.curr].name, rooms[pl.curr].desc);
 }
-void World::nextroom(direction dir){
+void World::nextroom(const direction dir){
 	
 		bool success = 0;
 
