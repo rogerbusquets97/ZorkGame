@@ -19,10 +19,12 @@ public:
 	void LookRoom();
 	bool Play();
 	void World::openclose();
+	~World();//destructor to delete
 
 	
 
 };
+	
 
 
 

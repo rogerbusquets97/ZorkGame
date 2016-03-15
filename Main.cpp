@@ -28,8 +28,7 @@ int main(){
 
 	printf("\nThanks for Playing :)");
 
-	delete map.rooms;
-	delete map.exits;
+	
 
 	getchar();
 	return 0;

@@ -234,4 +234,8 @@ void World::openclose(){
 
 	}
 }
+World::~World(){
+	delete rooms;
+	delete exits;
+}
 
