@@ -1,7 +1,7 @@
 # Zork-Time traveller
 This is an exercise for programming II in the UPC, we're developing our own Zork.
 
-It is played basically as he original Zork. 
+It is played basically as the original Zork. 
 
 Use:
 -"go"+ "direction you want to go" to move around the map(you'll find the map in a jpg in the repository)
