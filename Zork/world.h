@@ -8,18 +8,20 @@
 
 
 class World {
-public:
+private:
 	room*rooms;
 	Exit*exits;
 	player pl;
+	
 public:
+	World(){};
 	void CreateWorld();
 
-	void nextroom(const direction dir);
-	void LookRoom();
+	const void nextroom( direction dir);
+	const void LookRoom();
 	bool Play();
 	void World::openclose();
-	~World();//destructor to delete
+	virtual~World();//destructor to delete
 
 	
 

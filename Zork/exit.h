@@ -5,13 +5,16 @@
 
 enum direction { north, south, east, west };
 
-class Exit{
+class Exit:public Entity{
+	
 public:
+	Exit(){};
+	~Exit(){};
 	bool open;
 	direction dir;
-	rom source;
-	rom dest;
-
+	place source;
+	place dest;
+	
 };
 
 
