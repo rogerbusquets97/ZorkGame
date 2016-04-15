@@ -7,7 +7,7 @@
 typedef unsigned int uint;
 
 class String {
-private:
+public:
 	char* string;
 
 public:
@@ -58,8 +58,50 @@ public:
 	}
 	
 
-	/*Vector<String> String::Tokenize( Vector<String>&tokens){
 
+	int String::GetNumArgs(){
+		int args = 0;
+		if (string != nullptr){
+			args++;
+			for (int i = 0; i < length(); i++){
+				if (string[i] == ' '){
+					args++;
+				}
+			}
+			return args;
+		}
+		else
+			printf("Do not understand the command\n");
+	}
+	String String::GetFirstArg()const{
+		
+		String arg(capacity);
+		int i=0;
+		for ( i ; (string[i] != ' ')&& (i<capacity); i++){
+			arg.string[i] = string[i];
+		}
+		arg.string[i] ='\0';
+		return arg;
+	}
+
+	String String::GetSecArg(){
+
+		String arg(capacity);
+		int i, j=0;
+		for (i = 0; i < capacity; i++){
+			if (string[i] == ' '){
+				for (++i; i < capacity; i++){
+					arg.string[j++] = string[i];
+				}
+				arg.string[j] = '\0';
+
+			}
+		}
+		return arg;
+	}
+	
+	/*Vector<String> String::Tokenize( Vector<String>&tokens){
+		
 
 	};*/
 

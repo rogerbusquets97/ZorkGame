@@ -23,6 +23,15 @@ public:
 	void World::openclose();
 	virtual~World();//destructor to delete
 
+	Item torch;
+	Item sword;
+	Item armor;
+	Item time_machine;
+	Item TM_pieces;
+	Item food;
+	Item healing_potion;
+	Item key;
+
 	
 
 };

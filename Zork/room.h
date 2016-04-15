@@ -26,6 +26,14 @@ public:
 			objects[i].desc.print();
 		}
 	}
+	bool checkitems( int obj) {
+		for (int i = 0; i < objects.num_elements; i++){
+			if (objects[i].ID == obj){
+				return true;
+			}
+			else return false;
+		}
+	}
 
 	
 };

@@ -3,7 +3,7 @@
 
 
 String::String(){
-	string = nullptr;
+	string = new char[10];
 }
 String::String(unsigned int mem) {
 	string = new char[mem + 1];

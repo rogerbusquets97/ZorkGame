@@ -11,14 +11,38 @@ void World::CreateWorld(){
 
 
 	//Items
-	Item torch("Torch", "You can use it during night to see, otherwise you won't be able to look around you\n");
-	Item sword("Sword", "An ancient sword, seems to be able to cut someone's head, could be nice to try it\n");
-	Item armor("Armor", "A heavy armor that will protect you from enemies\n");
-	Item time_machine("Time machine", "The time machine, it's broken try to fix it to go back to the future\n");
-	Item TM_pieces("Time machine pieces", "The pieces that are necessary for fixing the time machine\n");
-	Item food("Food", "Food will increase your HP a bit\n");
-	Item healing_potion("Healing potion", "The healing potion fully heals you\n");
-	Item key("Key", "It is a key with the royal symbol, seems that it can open any door\n");
+	torch.name = "Torch";
+	torch.desc= "You can use it during night to see, otherwise you won't be able to look around you\n";
+	torch.ID = 1;
+
+	sword.name = "Sword";
+	sword.desc="An ancient sword, seems to be able to cut someone's head, could be nice to try it\n";
+	sword.ID = 2;
+
+	armor.name = "Armor";
+	armor.desc = "A heavy armor that will protect you from enemies\n";
+	armor.ID = 3;
+
+	time_machine.name = "Time machine";
+	time_machine.desc = "The time machine it's broken, try to fix it to go back to the future\n";
+	time_machine.ID = 4;
+
+	TM_pieces.name = "Time machine pieces";
+	TM_pieces.desc = "The pieces that are necessary for fixing the time machine\n";
+	TM_pieces.ID = 5;
+	
+	food.name = "Food";
+	food.desc = "Food will increase your HP a bit\n";
+	food.ID = 6;
+
+	healing_potion.name = "Healing potion";
+	healing_potion.desc = "The healing potion fully heals you\n";
+	healing_potion.ID = 7;
+
+	key.name = "Key";
+	key.desc = "It is a key with the royal symbol, seems that it can open any door\n";
+	key.ID = 8;
+
 	
 	
 	
@@ -216,6 +240,8 @@ void World::CreateWorld(){
 	//player
 
 	pl.curr = woods;
+	
+
 }
 
 const void World::LookRoom() {
@@ -249,45 +275,137 @@ const void World::nextroom(direction dir){
 
 	
 bool World::Play(){
-	char action[20];
+	String action(20);
 	printf("\n\n--> ");
-	fgets(action, 20, stdin);
-	if ((strcmp(action, "quit\n") == 0) || strcmp(action, "q\n") == 0)
-		return false;
-	else {
-		if (!strcmp(action, "north\n") || !strcmp(action, "n\n") || !strcmp(action, "go north\n")) {
-			nextroom(north);
-			
-		}
-		else if (!strcmp(action, "south\n") || !strcmp(action, "s\n") || !strcmp(action, "go south\n")) {
-			nextroom(south);
-		
-		}
-		else if (!strcmp(action, "west\n") || !strcmp(action, "w\n") || !strcmp(action, "go west\n")) {
-			nextroom(west);
-	
-		}
-		else if (!strcmp(action, "east\n") || !strcmp(action, "e\n") || !strcmp(action, "go east\n")) {
-			nextroom(east);
-			
-		}
-		else if (!strcmp(action, "open door\n")) {
-			openclose();
-		}
-		else if (!strcmp(action, "close door\n")) {
+	fgets(action.string, 20, stdin);
+	int args = action.GetNumArgs();
+	String first;
+	String second;
+	/*switch (args){
+	case 1:
+	if ((strcmp(action.string, "quit\n") == 0) || strcmp(action.string, "q\n") == 0){
+	return false;
+	}
+	else{
+	if (!strcmp(action.string, "north\n")){
+	nextroom(north);
+	}
+	else if (!strcmp(action.string, "south\n")){
+	nextroom(south);
+	}
+	else if (!strcmp(action.string, "west\n")){
+	nextroom(west);
+	}
+	else if (!strcmp(action.string, "east\n")){
+	nextroom(east);
+	}
+	else if (!strcmp(action.string, "help\n") || !strcmp(action.string, "h\n")) {
+	printf("Comands\n Go north(to move to the north)\n Go south(to move to the south)\n Go east(to move to the east)\n Go west( to move to the west)\n Look(to have again the description of the room)\n Help(to see againg the comands)\n quit(to quit the game)\n");
+	}
+	else if (!strcmp(action.string, "look\n") || !strcmp(action.string, "l\n")){
+	LookRoom();
+	}
+	else if (!strcmp(action.string, "inventory\n") || !strcmp(action.string, "inv\n") || !strcmp(action.string, "i\n")){
+	pl.LookPlayerItems();
+	}
+
+	return true;
+	break;
+
+	}
+	case 2:
+	first = action.GetFirstArg();
+	second = action.GetSecArg();
+	if (first == "go "){
+	if (second == "north "){
+	nextroom(north);
+	}
+	else if (second == "south "){
+	nextroom(south);
+	}
+	else if (second == "west "){
+	nextroom(west);
+	}
+	else if (second == "east "){
+	nextroom(east);
+	}
+	}
+	return true;
+	break;
+
+	}*/
+
+
+
+
+
+
+
+
+	switch (args){
+	case 1:
+		if ((strcmp(action.string, "quit\n") == 0) || strcmp(action.string, "q\n") == 0)
+			return false;
+		else {
+			if (!strcmp(action.string, "north\n") || !strcmp(action.string, "n\n")) {
+				nextroom(north);
+
+			}
+			else if (!strcmp(action.string, "south\n") || !strcmp(action.string, "s\n") ) {
+				nextroom(south);
+
+			}
+			else if (!strcmp(action.string, "west\n") || !strcmp(action.string, "w\n") ) {
+				nextroom(west);
+
+			}
+			else if (!strcmp(action.string, "east\n") || !strcmp(action.string, "e\n") ) {
+				nextroom(east);
+
+			}
+			else if (!strcmp(action.string, "open door\n")) {
 				openclose();
 			}
-		else if(!strcmp(action, "help\n") || !strcmp(action, "h\n")) {
-			printf("Comands\n Go north(to move to the north)\n Go south(to move to the south)\n Go east(to move to the east)\n Go west( to move to the west)\n Look(to have again the description of the room)\n Help(to see againg the comands)\n quit(to quit the game)\n");
+			else if (!strcmp(action.string, "close door\n")) {
+				openclose();
+			}
+			else if (!strcmp(action.string, "help\n") || !strcmp(action.string, "h\n")) {
+				printf("Comands\n Go north(to move to the north)\n Go south(to move to the south)\n Go east(to move to the east)\n Go west( to move to the west)\n Look(to have again the description of the room)\n Help(to see againg the comands)\n quit(to quit the game)\n");
+			}
+			else if (!strcmp(action.string, "look\n") || !strcmp(action.string, "l\n")){
+				LookRoom();
+			}
+			else if (!strcmp(action.string, "inventory\n") || !strcmp(action.string, "inv\n") || !strcmp(action.string, "i\n")){
+				pl.LookPlayerItems();
+			}
 		}
-		else if (!strcmp(action, "look\n") || !strcmp(action, "l\n")){
-			LookRoom();
-		}
+			return true;
+			break;
+	case 2:
+		first = action.GetFirstArg();
+		second = action.GetSecArg();
+		if (first == "go "){
+			if (second == "north "){
+				nextroom(north);
+			}
+			else if (second == "south "){
+				nextroom(south);
+			}
+			else if (second == "east "){
+				nextroom(east);
+			}
+			else if (second == "west "){
+				nextroom(west);
+			}
 
 
+		}
 		return true;
+		break;
+		}
 	}
-}
+
+
 
 
 void World::openclose(){
